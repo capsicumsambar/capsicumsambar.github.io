@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Random calculator</title>
+<style type="text/css">
+  table {
+  border: 1px solid black;
+        }
+   body{
+   	background-color: #F89640;
+   }
+</style>
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+</head>
+
+<body> 
+<h1 style="color: #716f79;font-family: Tondo;"> Welcome to my calculator! The decimal does not work yet, but everything else should...</h1>
+<h1 style="color: HONEYDEW;">So try away!</h1>
+<table>
+  <tr>
+    <th colspan="4"><input type="text" name="user"></th>
+  </tr>
+  <tr>
+    <td><button class="number">1</button></td>
+    <td><button class="number">2</button></td>
+    <td><button class="number">3</button></td>
+    <td><button class="operButton">+</button></td>
+  </tr>
+  <tr>
+    <td><button class="number">4</button></td>
+    <td><button class="number">5</button></td>
+    <td><button class="number">6</button></td>
+    <td><button class="operButton">-</button></td>
+  </tr>
+  <tr>
+    <td><button class="number">7</button></td>
+    <td><button class="number">8</button></td>
+    <td><button class="number">9</button></td>
+    <td><button class="operButton">*</button></td>
+  </tr>
+  <tr>
+    <td><button class="operButton">C</button></td>
+    <td><button class="number">0</button></td>
+    <td><button class="number">.</button></td>
+    <td><button class="operButton">/</button></td>
+  </tr>
+  <tr>
+   <td colspan="4" align="center"><button class="operButton" style="display:block; width:100%">=</button></td>
+  </tr>
+</table>
+
+<script src="calculator.js"></script>
+</body>
+</html>

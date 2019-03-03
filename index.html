@@ -3,13 +3,94 @@
     <head>
         <title>My Webpage</title>
         <link rel="stylesheet" type="text/css" href="css/style.css">
+        <style type="text/css"  media="all">
+         
+          .container {
+              margin: 20px auto;
+              
+              width: 100%;
+              text-align: center;
+            }
+
+          
+
+          /*begin styles for RSS Feed */
+
+
+
+          .rss-box {
+           
+             margin: 0 auto;
+
+             width: 50%;
+             background-color: #FFF;
+             float: left;
+             
+
+             
+             
+          }
+          .rss-items {
+            margin-top:0px;
+            padding:0.5em; 0.5em;
+            margin-left:0px;
+            color:#000000;
+          }
+          p.rss-title {padding:0.5em;}
+          .rss-title {
+            font-size: 16pt;
+            background-color: white;
+            color: black;
+            font-weight:bold;
+
+            text-align: left;
+          }
+
+          .rss-item  {
+            font-size: 12pt;
+            list-style:none;
+            padding-bottom:1em;
+          }
+
+          .rss-item a {
+            color:black;
+            font-size: 12pt;
+            }
+            
+          .rss-item a:visited {
+            color: blue;
+          }
+
+          .rss-date {
+            font-size: 12pt;
+            color: red;
+            } 
+
+           .clearfix::before {
+                  content: "";
+                  clear: both;
+                  
+                }
+
+          </style>
+           
+
+
+
+
+
     </head>
     <body>
-    <p>Cricket feed</p>
+        <h1 class="container">My cricket feed</h1>
+        
 
 
-       
+           
 
-    <script type="text/javascript" src="http://output58.rssinclude.com/output?type=js&amp;id=1209969&amp;hash=d952859036241e4d4e88f18227aeb53f"></script> 
+      
+         <script language="JavaScript" src="http://feed2js.org//feed2js.php?src=http%3A%2F%2Fwww.espncricinfo.com%2Frss%2Fcontent%2Fstory%2Ffeeds%2F6.xml&chan=y&num=5&desc=1&date=y&targ=y&utf=y"  charset="UTF-8" type="text/javascript"></script>
+
+        
+        <script language="JavaScript" src="http://feed2js.org//feed2js.php?src=http%3A%2F%2Fwww.espncricinfo.com%2Frss%2Fcontent%2Fstory%2Ffeeds%2F2.xml&chan=y&num=5&desc=1&date=y&targ=y&utf=y"  charset="UTF-8" type="text/javascript"></script>
     </body>
 </html>

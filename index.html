@@ -10,115 +10,72 @@
               
               width: 100%;
               text-align: center;
-            }
-
-          
-
+            }      
+            .parent {
+                overflow:hidden;/*contain floats*/
+              }
+              .parent div {
+                float:left;
+                /* min-width:200px;optional */
+                padding:10px;
+                /* border:1px solid orange; */
+                box-sizing: border-box;
+              }    
           /*begin styles for RSS Feed */
 
-            /* plain css formating */
-
-          /* .rss-box {
-           
-             margin: 0 auto;
-
-             width: 50%;
-             background-color: #FFF;
-             float: left;
-             
-
-             
-             
-          }
-          .rss-items {
-            margin-top:0px;
-            padding:0.5em; 0.5em;
-            margin-left:0px;
-            color:#000000;
-          }
-          p.rss-title {padding:0.5em;}
-          .rss-title {
-            font-size: 16pt;
-            background-color: white;
-            color: black;
-            font-weight:bold;
-
-            text-align: left;
-          }
-
-          .rss-item  {
-            font-size: 12pt;
-            list-style:none;
-            padding-bottom:1em;
-          }
-
-          .rss-item a {
-            color:black;
-            font-size: 12pt;
-            }
-            
-          .rss-item a:visited {
-            color: blue;
-          }
-
-          .rss-date {
-            font-size: 12pt;
-            color: red;
-            } 
-
-           .clearfix::before {
-                  content: "";
-                  clear: both;
-                  
-                } */
-
-/* Basic Blue CSS from https://feed2js.org/style.php */
-                .rss-box {
-	 margin: 10px 5%;
-	 padding: 4px 8px;
-
-	 background-color: #ededed;
-	 border: 2px dashed #7485CA;
+/* Yahoo style  CSS from https://feed2js.org/style.php */
+.rss-box {
+	 margin: 1em;
+	 width: 400px;
+	 /* background-color: #F1F1FD; */
+	 /* border: 1px solid #9B72CF; */
+	 
 }
-
-.rss-title, rss-title a {
-	font-family: "American Typewriter", "Trebuchet MS", Trebuchet, Lucida, sans-serif;
-	font-size: 18px;
-	font-weight:bold;
-	margin: 5px 0;
-	padding: 0;
-	letter-spacing: 1px;
-}
-
 .rss-items {
-  
+	margin-top:0px;
+	padding:0.5em; 0.5em;
+	margin-left:0px;
+	color:#000000;
+}
+p.rss-title {padding:0.5em;}
+.rss-title {
+	text-decoration: none;
+	font-family: verdana, sans-serif;
+	font-size: 85%;
+	background-color:#9B72CF;
+	color:#ffffff;
+	font-weight:bold;
+	margin: 0px;
+	padding:0em;
+	text-align: left;
 }
 
 .rss-item  {
   font-family: verdana, arial, sans-serif;
-  font-size: 13px;
-  font-weight : bold; 
-  margin: 8px 0;
+  font-size: 0.75em;
+  font-weight : normal;
+  list-style:none;
+  padding-bottom:1em;
 }
 
-.rss-item a:link, .rss-item a:visited, .rss-item a:active {
-	text-decoration : none;
-	border-bottom: 1px solid #ededed;
-	color: #88b;
-	}
-
-.rss-item a:hover { 
-	text-decoration : none;
-	color: #e0861e;
-	border-bottom: 1px dotted #e0861e;
+.rss-item a {
+	text-decoration : underline;
+	color:blue;
+	font-size: 105%;
+	font-weight:bold;
+	font-family:arial, sans-serif;
 	}
 	
+.rss-item a:visited {
+	/* color:purple; */
+}
+
 .rss-date {
-	font-size: 11px;
+	font-size: 85%;
 	font-weight : normal;
 	color: #F60;
 	}
-	
+ 
 /* buttons modeled from http://www.wellstyled.com/css-inline-buttons.html */
 
 .pod-play {
@@ -150,9 +107,8 @@
    background: black;
    color: white
    }
- 
 
-          </style>
+    </style>
            
 
 
@@ -162,16 +118,26 @@
     </head>
     <body>
         <h1 class="container">My environment and sports feed</h1>
+      
+        <div class="parent">
+          <div>
+            <!-- NYT Climate RSS feed -->
+            <script language="JavaScript" src="https://feed2js.org//feed2js.php?src=https%3A%2F%2Frss.nytimes.com%2Fservices%2Fxml%2Frss%2Fnyt%2FClimate.xml&chan=y&num=5&au=y&date=y&utf=y&html=a"  charset="UTF-8" type="text/javascript"></script>
+          </div>
+          <div>
+            <!-- Cricinfo RSS feed -->
+            <script language="JavaScript" src="https://feed2js.org//feed2js.php?src=https%3A%2F%2Fwww.espncricinfo.com%2Frss%2Fcontent%2Fstory%2Ffeeds%2F6.xml&chan=y&num=5&au=y&date=y&tz=-5&utf=y&html=a"  charset="UTF-8" type="text/javascript"></script>
+          </div>
+          <div>
+            <!-- Warriors SFGate RSS feed -->        
+            <script language="JavaScript" src="https://feed2js.org//feed2js.php?src=https%3A%2F%2Fwww.sfgate.com%2Fwarriors%2Ffeed%2FGolden-State-Warriors-RSS-Feed-491.php&chan=y&num=5&au=y&date=y&tz=-5&utf=y&html=a"  charset="UTF-8" type="text/javascript"></script>
+          </div>
+        </div>
         
 
-      <!-- NYT Climate RSS feed -->
-      <script language="JavaScript" src="https://feed2js.org//feed2js.php?src=https%3A%2F%2Frss.nytimes.com%2Fservices%2Fxml%2Frss%2Fnyt%2FClimate.xml&chan=y&num=5&au=y&date=y&utf=y&html=a"  charset="UTF-8" type="text/javascript"></script>
-           
+      
 
-      <!-- Cricinfo RSS feed -->
-        <script language="JavaScript" src="https://feed2js.org//feed2js.php?src=https%3A%2F%2Fwww.espncricinfo.com%2Frss%2Fcontent%2Fstory%2Ffeeds%2F6.xml&chan=y&num=5&au=y&date=y&tz=-5&utf=y&html=a"  charset="UTF-8" type="text/javascript"></script>
        
-        <!-- Warriors SFGate RSS feed -->        
-        <script language="JavaScript" src="https://feed2js.org//feed2js.php?src=https%3A%2F%2Fwww.sfgate.com%2Fwarriors%2Ffeed%2FGolden-State-Warriors-RSS-Feed-491.php&chan=y&num=5&au=y&date=y&tz=-5&utf=y&html=a"  charset="UTF-8" type="text/javascript"></script>
-    </body>
+    
+      </body>
 </html>

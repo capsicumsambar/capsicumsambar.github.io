@@ -1,32 +1,46 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>My Webpage</title>
+      <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Science & Environment Feed</title>
+        <!-- Bootstrap CDN -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <!-- End Bootstrap CDN -->
+        <!-- JQuery CDN -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <!-- End JQuery CDN -->
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <style type="text/css"  media="all">
          
-          .container {
+          /* .container {
               margin: 20px auto;
               
               width: 100%;
               text-align: center;
-            }      
-            .parent {
+            }       */
+            /* .parent {
                 overflow:hidden;/*contain floats*/
-              }
-              .parent div {
-                float:left;
+              /* } */ */
+
+           /* .parent div { */
+                /* float:left; */
                 /* min-width:200px;optional */
-                padding:10px;
+                /* padding:10px; */
                 /* border:1px solid orange; */
-                box-sizing: border-box;
-              }    
+                /* box-sizing: border-box; */
+              /* }     */
           /*begin styles for RSS Feed */
 
 /* Yahoo style  CSS from https://feed2js.org/style.php */
 .rss-box {
 	 margin: 1em;
-	 width: 400px;
+	 /* width: 400px; */
 	 /* background-color: #F1F1FD; */
 	 /* border: 1px solid #9B72CF; */
 	 
@@ -109,30 +123,59 @@ p.rss-title {padding:0.5em;}
    }
 
     </style>
-           
-
-
-
-
 
     </head>
+
     <body>
-        <h1 class="container">My environment and sports feed</h1>
+      <!-- heading section-->
+      <nav class="navbar navbar-expand-sm bg-dark navbar-dark" style="font-size: 1rem;">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" href="index.html">Home: Science & Environment</a>
+          </li>          
+          <li class="nav-item">
+            <a class="nav-link" href="corpsustainability.html">Corporate Sustainability</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="biodiversity.html">Biodiversity</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="kidsenvironment.html">Kids & Environment</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="sports.html">Sports</a>
+          </li>
+        </ul>
+      </nav>
+      <!-- end heading section -->
+      <p></p>
+        <h3 class="container row px-md-5">Top science and environment news</h1>
+        <p></p>
       
-        <div class="parent">
-          <div>
+        <div class="row mx-md-n5">
+          <div class="col-sm-4 px-md-5">
             <!-- NYT Climate RSS feed -->
             <script language="JavaScript" src="https://feed2js.org//feed2js.php?src=https%3A%2F%2Frss.nytimes.com%2Fservices%2Fxml%2Frss%2Fnyt%2FClimate.xml&chan=y&num=5&au=y&date=y&utf=y&html=a"  charset="UTF-8" type="text/javascript"></script>
           </div>
-          <div>
-            <!-- Cricinfo RSS feed -->
-            <script language="JavaScript" src="https://feed2js.org//feed2js.php?src=https%3A%2F%2Fwww.espncricinfo.com%2Frss%2Fcontent%2Fstory%2Ffeeds%2F6.xml&chan=y&num=5&au=y&date=y&tz=-5&utf=y&html=a"  charset="UTF-8" type="text/javascript"></script>
+
+          <div class="col-sm-4 px-md-5">
+            <!-- NPR Science feed -->
+            <script language="JavaScript" src="https://feed2js.org//feed2js.php?src=https%3A%2F%2Ffeeds.npr.org%2F1007%2Frss.xml&chan=y&num=5&desc=1&au=y&date=y&utf=y"  charset="UTF-8" type="text/javascript"></script>
           </div>
-          <div>
-            <!-- Warriors SFGate RSS feed -->        
-            <script language="JavaScript" src="https://feed2js.org//feed2js.php?src=https%3A%2F%2Fwww.sfgate.com%2Fwarriors%2Ffeed%2FGolden-State-Warriors-RSS-Feed-491.php&chan=y&num=5&au=y&date=y&tz=-5&utf=y&html=a"  charset="UTF-8" type="text/javascript"></script>
+          
+          <div class="col-sm-4 px-md-5">
+          <!-- BBC Science feed -->
+          <script language="JavaScript" src="http://feed2js.org//feed2js.php?src=http%3A%2F%2Ffeeds.bbci.co.uk%2Fnews%2Fscience_and_environment%2Frss.xml&chan=y&num=5&desc=1&au=y&date=y&utf=y"  charset="UTF-8" type="text/javascript"></script>
           </div>
         </div>
+
+        
+          <!-- Cricinfo RSS feed -->
+          <!-- <script language="JavaScript" src="https://feed2js.org//feed2js.php?src=https%3A%2F%2Fwww.espncricinfo.com%2Frss%2Fcontent%2Fstory%2Ffeeds%2F6.xml&chan=y&num=5&au=y&date=y&tz=-5&utf=y&html=a"  charset="UTF-8" type="text/javascript"></script> -->
+        
+          <!-- Warriors SFGate RSS feed -->        
+          <!-- <script language="JavaScript" src="https://feed2js.org//feed2js.php?src=https%3A%2F%2Fwww.sfgate.com%2Fwarriors%2Ffeed%2FGolden-State-Warriors-RSS-Feed-491.php&chan=y&num=5&au=y&date=y&tz=-5&utf=y&html=a"  charset="UTF-8" type="text/javascript"></script> -->
+    
         
 
       

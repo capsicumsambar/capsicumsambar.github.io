@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My Webpage</title>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <style type="text/css"  media="all">
+         
+          .container {
+              margin: 20px auto;
+              
+              width: 100%;
+              text-align: center;
+            }
+
+          
+
+          /*begin styles for RSS Feed */
+
+            /* plain css formating */
+
+          /* .rss-box {
+           
+             margin: 0 auto;
+
+             width: 50%;
+             background-color: #FFF;
+             float: left;
+             
+
+             
+             
+          }
+          .rss-items {
+            margin-top:0px;
+            padding:0.5em; 0.5em;
+            margin-left:0px;
+            color:#000000;
+          }
+          p.rss-title {padding:0.5em;}
+          .rss-title {
+            font-size: 16pt;
+            background-color: white;
+            color: black;
+            font-weight:bold;
+
+            text-align: left;
+          }
+
+          .rss-item  {
+            font-size: 12pt;
+            list-style:none;
+            padding-bottom:1em;
+          }
+
+          .rss-item a {
+            color:black;
+            font-size: 12pt;
+            }
+            
+          .rss-item a:visited {
+            color: blue;
+          }
+
+          .rss-date {
+            font-size: 12pt;
+            color: red;
+            } 
+
+           .clearfix::before {
+                  content: "";
+                  clear: both;
+                  
+                } */
+
+/* Basic Blue CSS from https://feed2js.org/style.php */
+                .rss-box {
+	 margin: 10px 5%;
+	 padding: 4px 8px;
+
+	 background-color: #ededed;
+	 border: 2px dashed #7485CA;
+}
+
+.rss-title, rss-title a {
+	font-family: "American Typewriter", "Trebuchet MS", Trebuchet, Lucida, sans-serif;
+	font-size: 18px;
+	font-weight:bold;
+	margin: 5px 0;
+	padding: 0;
+	letter-spacing: 1px;
+}
+
+.rss-items {
+  
+}
+
+.rss-item  {
+  font-family: verdana, arial, sans-serif;
+  font-size: 13px;
+  font-weight : bold; 
+  margin: 8px 0;
+}
+
+.rss-item a:link, .rss-item a:visited, .rss-item a:active {
+	text-decoration : none;
+	border-bottom: 1px solid #ededed;
+	color: #88b;
+	}
+
+.rss-item a:hover { 
+	text-decoration : none;
+	color: #e0861e;
+	border-bottom: 1px dotted #e0861e;
+	}
+	
+.rss-date {
+	font-size: 11px;
+	font-weight : normal;
+	color: #F60;
+	}
+	
+/* buttons modeled from http://www.wellstyled.com/css-inline-buttons.html */
+
+.pod-play {
+   _width:12em;
+   margin: 0 0.2em; padding: 0.1em 0; _padding:0;
+   
+   white-space:nowrap;
+   text-decoration: none;
+   vertical-align:middle;
+   background: #fb6;
+   color: black;
+   }
+.pod-play em {
+   _width:1em; _cursor:hand;
+   font-style: normal;
+   margin:0; padding: 0.1em 0.5em;
+   background: white;
+   color: #222;
+   }
+.pod-play span {
+   _width:1em; _cursor:hand;
+   margin:0; padding: 0.1em 0.5em 0.1em 0.3em;
+   }
+.pod-play:hover {
+   background: #666;
+   color: white;
+   }
+.pod-play:hover em {
+   background: black;
+   color: white
+   }
+ 
+
+          </style>
+           
+
+
+
+
+
+    </head>
+    <body>
+        <h1 class="container">My sports feed</h1>
+        
+
+
+           
+
+      
+         <script language="JavaScript" src="http://feed2js.org//feed2js.php?src=http%3A%2F%2Fwww.espncricinfo.com%2Frss%2Fcontent%2Fstory%2Ffeeds%2F6.xml&chan=y&num=5&desc=1&date=y&targ=y&utf=y"  charset="UTF-8" type="text/javascript"></script>
+
+        
+        <!-- <script language="JavaScript" src="http://feed2js.org//feed2js.php?src=http%3A%2F%2Fwww.espncricinfo.com%2Frss%2Fcontent%2Fstory%2Ffeeds%2F2.xml&chan=y&num=5&desc=1&date=y&targ=y&utf=y"  charset="UTF-8" type="text/javascript"></script> -->
+        <!-- Warrios RSS feeds -->
+        
+        <script language="JavaScript" src="http://feed2js.org//feed2js.php?src=https%3A%2F%2Fwww.sfgate.com%2Fwarriors%2Ffeed%2FGolden-State-Warriors-RSS-Feed-491.php&chan=y&num=5&au=y&date=y&tz=-5&utf=y&html=a"  charset="UTF-8" type="text/javascript"></script>
+    </body>
+</html>

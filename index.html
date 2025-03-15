@@ -1,186 +1,482 @@
 <!DOCTYPE html>
-<html>
-    <head>
-      <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>Science & Environment Feed</title>
-        <!-- Bootstrap CDN -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-        <!-- End Bootstrap CDN -->
-        <!-- JQuery CDN -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <!-- End JQuery CDN -->
-        <link rel="stylesheet" type="text/css" href="css/style.css">
-        <style type="text/css"  media="all">
-         
-          /* .container {
-              margin: 20px auto;
-              
-              width: 100%;
-              text-align: center;
-            }       */
-            /* .parent {
-                overflow:hidden;/*contain floats*/
-              /* } */ */
-
-           /* .parent div { */
-                /* float:left; */
-                /* min-width:200px;optional */
-                /* padding:10px; */
-                /* border:1px solid orange; */
-                /* box-sizing: border-box; */
-              /* }     */
-          /*begin styles for RSS Feed */
-
-/* Yahoo style  CSS from https://feed2js.org/style.php */
-.rss-box {
-	 margin: 1em;
-	 /* width: 400px; */
-	 /* background-color: #F1F1FD; */
-	 /* border: 1px solid #9B72CF; */
-	 
-}
-.rss-items {
-	margin-top:0px;
-	padding:0.5em; 0.5em;
-	margin-left:0px;
-	color:#000000;
-}
-p.rss-title {padding:0.5em;}
-.rss-title {
-	text-decoration: none;
-	font-family: verdana, sans-serif;
-	font-size: 85%;
-	background-color:#9B72CF;
-	color:#ffffff;
-	font-weight:bold;
-	margin: 0px;
-	padding:0em;
-	text-align: left;
-}
-
-.rss-item  {
-  font-family: verdana, arial, sans-serif;
-  font-size: 0.75em;
-  font-weight : normal;
-  list-style:none;
-  padding-bottom:1em;
-}
-
-.rss-item a {
-	text-decoration : underline;
-	color:blue;
-	font-size: 105%;
-	font-weight:bold;
-	font-family:arial, sans-serif;
-	}
-	
-.rss-item a:visited {
-	/* color:purple; */
-}
-
-.rss-date {
-	font-size: 85%;
-	font-weight : normal;
-	color: #F60;
-	}
- 
-/* buttons modeled from http://www.wellstyled.com/css-inline-buttons.html */
-
-.pod-play {
-   _width:12em;
-   margin: 0 0.2em; padding: 0.1em 0; _padding:0;
-   
-   white-space:nowrap;
-   text-decoration: none;
-   vertical-align:middle;
-   background: #fb6;
-   color: black;
-   }
-.pod-play em {
-   _width:1em; _cursor:hand;
-   font-style: normal;
-   margin:0; padding: 0.1em 0.5em;
-   background: white;
-   color: #222;
-   }
-.pod-play span {
-   _width:1em; _cursor:hand;
-   margin:0; padding: 0.1em 0.5em 0.1em 0.3em;
-   }
-.pod-play:hover {
-   background: #666;
-   color: white;
-   }
-.pod-play:hover em {
-   background: black;
-   color: white
-   }
-
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Inspiration</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            color: #666;
+        }
+        
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+        
+        .tile {
+            width: 300px;
+            height: 300px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .tile-content {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .tile-preview {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: none;
+        }
+        
+        .tile-text {
+            width: 100%;
+            height: 100%;
+            padding: 20px;
+            border: none;
+            resize: none;
+            font-size: 1rem;
+            display: none;
+        }
+        
+        .embed-wrapper {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+            display: none;
+        }
+        
+        .embed-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .controls {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            display: flex;
+            gap: 5px;
+            z-index: 10;
+        }
+        
+        .control-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.8);
+            border: 1px solid #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .control-btn:hover {
+            background-color: rgba(255, 255, 255, 1);
+            transform: scale(1.1);
+        }
+        
+        .file-input {
+            display: none;
+        }
+        
+        .embed-form {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            display: none;
+            flex-direction: column;
+            padding: 20px;
+            z-index: 15;
+        }
+        
+        .embed-input {
+            flex: 1;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        .embed-buttons {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+        
+        .embed-btn {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        .confirm-btn {
+            background-color: #4CAF50;
+            color: white;
+        }
+        
+        .cancel-btn {
+            background-color: #f44336;
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .tile {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
     </style>
-
-    </head>
-
-    <body>
-      <!-- heading section-->
-      <nav class="navbar navbar-expand-sm bg-dark navbar-dark" style="font-size: 1rem;">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link active" href="index.html">Home: Science & Environment</a>
-          </li>          
-          <li class="nav-item">
-            <a class="nav-link" href="corpsustainability.html">Corporate Sustainability</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="biodiversity.html">Biodiversity</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="kidsenvironment.html">Kids & Environment</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="sports.html">Sports</a>
-          </li>
-        </ul>
-      </nav>
-      <!-- end heading section -->
-      <p></p>
-        <h3 class="container row px-md-5">Top science and environment news</h1>
-        <p></p>
-      
-        <div class="row mx-md-n5">
-          <div class="col-sm-4 px-md-5">
-            <!-- NYT Climate RSS feed -->
-            <script language="JavaScript" src="https://feed2js.org//feed2js.php?src=https%3A%2F%2Frss.nytimes.com%2Fservices%2Fxml%2Frss%2Fnyt%2FClimate.xml&chan=y&num=5&au=y&date=y&utf=y&html=a"  charset="UTF-8" type="text/javascript"></script>
-          </div>
-
-          <div class="col-sm-4 px-md-5">
-            <!-- NPR Science feed -->
-            <script language="JavaScript" src="https://feed2js.org//feed2js.php?src=https%3A%2F%2Ffeeds.npr.org%2F1007%2Frss.xml&chan=y&num=5&desc=1&au=y&date=y&utf=y"  charset="UTF-8" type="text/javascript"></script>
-          </div>
-          
-          <div class="col-sm-4 px-md-5">
-          <!-- BBC Science feed -->
-          <script language="JavaScript" src="https://feed2js.org//feed2js.php?src=http%3A%2F%2Ffeeds.bbci.co.uk%2Fnews%2Fscience_and_environment%2Frss.xml&chan=y&num=5&desc=1&au=y&date=y&utf=y"  charset="UTF-8" type="text/javascript"></script>
-          </div>
+</head>
+<body>
+    <header>
+        <h1>Daily Inspiration</h1>
+        <p class="subtitle">Curate your own inspiration tiles</p>
+    </header>
+    
+    <div class="container">
+        <!-- Tile 1 - Pre-filled with Venkatesh Iyer ESPNcricinfo video -->
+        <div class="tile" id="tile1">
+            <div class="tile-content" style="display: none;">
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#aaaaaa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                    <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                    <polyline points="21 15 16 10 5 21"></polyline>
+                </svg>
+                <p style="margin-top: 15px; color: #888;">Click an option below to add content</p>
+            </div>
+            <img class="tile-preview" id="preview1">
+            <textarea class="tile-text" id="text1" placeholder="Enter your inspirational text here..."></textarea>
+            <div class="embed-wrapper" id="embed-wrapper1" style="display: block;">
+                <iframe src="https://www.espncricinfo.com/embed/video/venkatesh-iyer-i-have-to-credit-academics-for-how-i-think-how-i-approach-life-1476658" allowfullscreen frameborder="0"></iframe>
+            </div>
+            
+            <div class="controls">
+                <div class="control-btn" onclick="toggleText(1)">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="17" y1="10" x2="3" y2="10"></line>
+                        <line x1="21" y1="6" x2="3" y2="6"></line>
+                        <line x1="21" y1="14" x2="3" y2="14"></line>
+                        <line x1="17" y1="18" x2="3" y2="18"></line>
+                    </svg>
+                </div>
+                <div class="control-btn" onclick="document.getElementById('file1').click()">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                        <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                        <polyline points="21 15 16 10 5 21"></polyline>
+                    </svg>
+                </div>
+                <input type="file" id="file1" class="file-input" accept="image/*" onchange="handleFileSelect(1)">
+                <div class="control-btn" onclick="showEmbedForm(1)">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="16 18 22 12 16 6"></polyline>
+                        <polyline points="8 6 2 12 8 18"></polyline>
+                    </svg>
+                </div>
+            </div>
+            
+            <div class="embed-form" id="embedForm1">
+                <textarea class="embed-input" id="embedInput1" placeholder="Paste URL or embed code here..."></textarea>
+                <div class="embed-buttons">
+                    <button class="embed-btn cancel-btn" onclick="hideEmbedForm(1)">Cancel</button>
+                    <button class="embed-btn confirm-btn" onclick="handleEmbed(1)">Embed</button>
+                </div>
+            </div>
         </div>
-
         
-          <!-- Cricinfo RSS feed -->
-          <!-- <script language="JavaScript" src="https://feed2js.org//feed2js.php?src=https%3A%2F%2Fwww.espncricinfo.com%2Frss%2Fcontent%2Fstory%2Ffeeds%2F6.xml&chan=y&num=5&au=y&date=y&tz=-5&utf=y&html=a"  charset="UTF-8" type="text/javascript"></script> -->
+        <!-- Tile 2 - Pre-filled with Venkatesh Iyer YouTube video -->
+        <div class="tile" id="tile2">
+            <div class="tile-content" style="display: none;">
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#aaaaaa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                    <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                    <polyline points="21 15 16 10 5 21"></polyline>
+                </svg>
+                <p style="margin-top: 15px; color: #888;">Click an option below to add content</p>
+            </div>
+            <img class="tile-preview" id="preview2">
+            <textarea class="tile-text" id="text2" placeholder="Enter your inspirational text here..."></textarea>
+            <div class="embed-wrapper" id="embed-wrapper2" style="display: block;">
+                <iframe src="https://www.youtube.com/embed/ckULCThUMQs" allowfullscreen frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            </div>
+            
+            <div class="controls">
+                <div class="control-btn" onclick="toggleText(2)">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="17" y1="10" x2="3" y2="10"></line>
+                        <line x1="21" y1="6" x2="3" y2="6"></line>
+                        <line x1="21" y1="14" x2="3" y2="14"></line>
+                        <line x1="17" y1="18" x2="3" y2="18"></line>
+                    </svg>
+                </div>
+                <div class="control-btn" onclick="document.getElementById('file2').click()">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                        <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                        <polyline points="21 15 16 10 5 21"></polyline>
+                    </svg>
+                </div>
+                <input type="file" id="file2" class="file-input" accept="image/*" onchange="handleFileSelect(2)">
+                <div class="control-btn" onclick="showEmbedForm(2)">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="16 18 22 12 16 6"></polyline>
+                        <polyline points="8 6 2 12 8 18"></polyline>
+                    </svg>
+                </div>
+            </div>
+            
+            <div class="embed-form" id="embedForm2">
+                <textarea class="embed-input" id="embedInput2" placeholder="Paste URL or embed code here..."></textarea>
+                <div class="embed-buttons">
+                    <button class="embed-btn cancel-btn" onclick="hideEmbedForm(2)">Cancel</button>
+                    <button class="embed-btn confirm-btn" onclick="handleEmbed(2)">Embed</button>
+                </div>
+            </div>
+        </div>
         
-          <!-- Warriors SFGate RSS feed -->        
-          <!-- <script language="JavaScript" src="https://feed2js.org//feed2js.php?src=https%3A%2F%2Fwww.sfgate.com%2Fwarriors%2Ffeed%2FGolden-State-Warriors-RSS-Feed-491.php&chan=y&num=5&au=y&date=y&tz=-5&utf=y&html=a"  charset="UTF-8" type="text/javascript"></script> -->
+        <!-- Tile 3 -->
+        <div class="tile" id="tile3">
+            <div class="tile-content">
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#aaaaaa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                    <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                    <polyline points="21 15 16 10 5 21"></polyline>
+                </svg>
+                <p style="margin-top: 15px; color: #888;">Click an option below to add content</p>
+            </div>
+            <img class="tile-preview" id="preview3">
+            <textarea class="tile-text" id="text3" placeholder="Enter your inspirational text here..."></textarea>
+            <div class="embed-wrapper" id="embed-wrapper3"></div>
+            
+            <div class="controls">
+                <div class="control-btn" onclick="toggleText(3)">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="17" y1="10" x2="3" y2="10"></line>
+                        <line x1="21" y1="6" x2="3" y2="6"></line>
+                        <line x1="21" y1="14" x2="3" y2="14"></line>
+                        <line x1="17" y1="18" x2="3" y2="18"></line>
+                    </svg>
+                </div>
+                <div class="control-btn" onclick="document.getElementById('file3').click()">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                        <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                        <polyline points="21 15 16 10 5 21"></polyline>
+                    </svg>
+                </div>
+                <input type="file" id="file3" class="file-input" accept="image/*" onchange="handleFileSelect(3)">
+                <div class="control-btn" onclick="showEmbedForm(3)">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="16 18 22 12 16 6"></polyline>
+                        <polyline points="8 6 2 12 8 18"></polyline>
+                    </svg>
+                </div>
+            </div>
+            
+            <div class="embed-form" id="embedForm3">
+                <textarea class="embed-input" id="embedInput3" placeholder="Paste URL or embed code here..."></textarea>
+                <div class="embed-buttons">
+                    <button class="embed-btn cancel-btn" onclick="hideEmbedForm(3)">Cancel</button>
+                    <button class="embed-btn confirm-btn" onclick="handleEmbed(3)">Embed</button>
+                </div>
+            </div>
+        </div>
+    </div>
     
+    <script>
+        // Handle image upload
+        function handleFileSelect(tileNum) {
+            const fileInput = document.getElementById(`file${tileNum}`);
+            const preview = document.getElementById(`preview${tileNum}`);
+            const tileContent = document.querySelector(`#tile${tileNum} .tile-content`);
+            const text = document.getElementById(`text${tileNum}`);
+            const embedWrapper = document.getElementById(`embed-wrapper${tileNum}`);
+            
+            const file = fileInput.files[0];
+            if (file) {
+                const reader = new FileReader();
+                
+                reader.onload = function(e) {
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                    tileContent.style.display = 'none';
+                    text.style.display = 'none';
+                    embedWrapper.style.display = 'none';
+                }
+                
+                reader.readAsDataURL(file);
+            }
+        }
         
-
-      
-
-       
-    
-      </body>
+        // Toggle text editor
+        function toggleText(tileNum) {
+            const tileContent = document.querySelector(`#tile${tileNum} .tile-content`);
+            const preview = document.getElementById(`preview${tileNum}`);
+            const text = document.getElementById(`text${tileNum}`);
+            const embedWrapper = document.getElementById(`embed-wrapper${tileNum}`);
+            
+            if (text.style.display === 'block') {
+                text.style.display = 'none';
+                tileContent.style.display = 'flex';
+            } else {
+                text.style.display = 'block';
+                tileContent.style.display = 'none';
+                preview.style.display = 'none';
+                embedWrapper.style.display = 'none';
+            }
+        }
+        
+        // Show embed form
+        function showEmbedForm(tileNum) {
+            const embedForm = document.getElementById(`embedForm${tileNum}`);
+            embedForm.style.display = 'flex';
+        }
+        
+        // Hide embed form
+        function hideEmbedForm(tileNum) {
+            const embedForm = document.getElementById(`embedForm${tileNum}`);
+            embedForm.style.display = 'none';
+        }
+        
+        // Handle embed
+        function handleEmbed(tileNum) {
+            const embedInput = document.getElementById(`embedInput${tileNum}`);
+            const embedWrapper = document.getElementById(`embed-wrapper${tileNum}`);
+            const tileContent = document.querySelector(`#tile${tileNum} .tile-content`);
+            const preview = document.getElementById(`preview${tileNum}`);
+            const text = document.getElementById(`text${tileNum}`);
+            const embedForm = document.getElementById(`embedForm${tileNum}`);
+            
+            const input = embedInput.value.trim();
+            
+            if (input) {
+                if (input.startsWith('<iframe')) {
+                    // Extract src from iframe
+                    const srcMatch = input.match(/src="([^"]+)"/);
+                    if (srcMatch && srcMatch[1]) {
+                        const src = srcMatch[1];
+                        
+                        // Create a clean iframe with all necessary attributes
+                        if (src.includes('youtube.com')) {
+                            embedWrapper.innerHTML = `<iframe src="${src}" allowfullscreen frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>`;
+                        } else {
+                            embedWrapper.innerHTML = `<iframe src="${src}" allowfullscreen frameborder="0"></iframe>`;
+                        }
+                        embedWrapper.style.display = 'block';
+                    } else {
+                        // Just try to use the input directly
+                        embedWrapper.innerHTML = input;
+                        embedWrapper.style.display = 'block';
+                    }
+                } else if (input.startsWith('http')) {
+                    // Direct URL
+                    if (input.includes('youtube.com') || input.includes('youtu.be')) {
+                        // YouTube URL
+                        const videoId = input.includes('youtu.be') 
+                            ? input.split('/').pop().split('?')[0] 
+                            : new URL(input).searchParams.get('v');
+                        
+                        if (videoId) {
+                            embedWrapper.innerHTML = `<iframe src="https://www.youtube.com/embed/${videoId}" allowfullscreen frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>`;
+                            embedWrapper.style.display = 'block';
+                        }
+                    } else if (input.match(/\.(jpeg|jpg|gif|png)$/i)) {
+                        // Image URL
+                        preview.src = input;
+                        preview.style.display = 'block';
+                        embedWrapper.style.display = 'none';
+                    } else if (input.includes('espncricinfo.com')) {
+                        // ESPNcricinfo URL
+                        // Handle ESPN cricinfo videos - extract video ID if present
+                        const videoIdMatch = input.match(/\/([0-9]+)$/);
+                        const videoId = videoIdMatch ? videoIdMatch[1] : '';
+                        
+                        if (videoId) {
+                            embedWrapper.innerHTML = `<iframe src="https://www.espncricinfo.com/embed/video/${videoId}" allowfullscreen frameborder="0"></iframe>`;
+                        } else {
+                            // Just try the URL directly
+                            embedWrapper.innerHTML = `<iframe src="${input}" allowfullscreen frameborder="0"></iframe>`;
+                        }
+                        embedWrapper.style.display = 'block';
+                    } else {
+                        // General URL
+                        embedWrapper.innerHTML = `<iframe src="${input}" allowfullscreen frameborder="0"></iframe>`;
+                        embedWrapper.style.display = 'block';
+                    }
+                }
+                
+                // Make sure all iframe elements fill their container
+                setTimeout(() => {
+                    const iframes = embedWrapper.querySelectorAll('iframe');
+                    iframes.forEach(iframe => {
+                        iframe.style.width = '100%';
+                        iframe.style.height = '100%';
+                    });
+                }, 100);
+                
+                tileContent.style.display = 'none';
+                text.style.display = 'none';
+                embedForm.style.display = 'none';
+            }
+        }
+    </script>
+</body>
 </html>
